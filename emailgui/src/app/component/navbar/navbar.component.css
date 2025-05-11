@@ -1,0 +1,10 @@
+mat-toolbar{
+    background-color: #1E90FF;
+    color: white;
+}
+.example-icon{
+    background-color: #1E90FF;
+    color: white;
+    border: 0;
+    font-size: 20px;
+}
