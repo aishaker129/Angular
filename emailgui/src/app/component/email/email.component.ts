@@ -7,10 +7,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EmailService } from '../../service/email.service';
 import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-email',
-  imports: [MatFormFieldModule,MatInputModule,FormsModule,MatButtonModule,CommonModule,HttpClientModule],
+  imports: [MatFormFieldModule,MatInputModule,FormsModule,MatButtonModule,CommonModule,HttpClientModule,MatProgressSpinnerModule],
   templateUrl: './email.component.html', 
   styleUrl: './email.component.css'
 })
@@ -21,6 +22,8 @@ export class EmailComponent implements OnInit{
     subject: "",
     message:""
   }
+
+  flag = false;
 
   constructor(private email:EmailService,private snak:MatSnackBar){ }
   ngOnInit(): void {
@@ -37,13 +40,17 @@ export class EmailComponent implements OnInit{
       return;
     }
 
+    this.flag = true;
     this.email.sendEmail(this.data).subscribe(
       response=> {
         console.log(response);
+        this.flag = false;
+        this.snak.open("Send Success...", "OK");
       },
       error=> {
         console.log(error);
-      
+        this.flag = false;
+        this.snak.open("ERROR !!", "OK");
       }
     )
     
