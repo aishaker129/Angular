@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-4">
+        One Way - form .ts to .html
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+
+<div class="row container mx-auto">
+    <div class="col-4 text-center">
+        interpolation
+        <div class="bg-success ">
+
+            <h4>{{courseName}}</h4>
+            <div>{{inputType}}</div>
+            <input type="text" value="{{courseName}}" placeholder="Enter course name">
+            <input type="{{inputType}}">
+        </div>
+    </div>
+    <div class="col-4 text-center">
+        Property Binding
+        <div [class]="myClassName">
+            Danger
+            <br>
+            <input type="text" [value]="courseName">
+            <input [type]="inputType">
+        </div>
+
+
+    </div>
+    <div class="col-4 text-center">
+        Event Binding <br>
+        <button class="btn btn-success" (click)="showalert('Welcome Angular 18')">show alert</button>
+        <span (click)="showalert('this is span alert')">click me</span>
+        <button class="btn btn-primary" (click)="changeCourseName()">change course</button>
+    </div>
+</div>
+<div class="row container mx-auto mt-5">
+    <div class="col-6">
+        <input type="text" [(ngModel)]="courseName"> -{{courseName}}
+
+        <select [(ngModel)]="state">
+            <option value="">select one</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Netrokona">Netrokona</option>
+            <option value="Comilla">Comilla</option>
+            <option value="Kishorganj">Kishorganj</option>
+        </select>
+        <span>{{state}}</span>
+    </div>
+    <div class="col-6">
+        <h2>{{studentName()}}</h2>
+    </div>
+</div>
