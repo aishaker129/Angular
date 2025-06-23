@@ -1,0 +1,57 @@
+<div class="row container mx-auto my-2">
+    <div class="bg-secondary p-5 rounded text-white">
+        <h1>Pipe in Angular</h1>
+        <h4>Default pipe and Custome Pipe</h4>
+    </div>
+</div>
+<div class="row container mx-auto my-5">
+    <div class="col-3">
+        <h4>Original value: {{text}} </h4>
+        <h5>After pipe: {{text | uppercase}}</h5>
+    </div>
+    <div class="col-3">
+        <h4>Original value: {{textu}}</h4>
+        <h5>After pipe: {{textu | lowercase}}</h5>
+    </div>
+    <div class="col-3">
+        <h4>Original value: {{textt}}</h4>
+        <h5>After pipe: {{textt | titlecase}}</h5>
+    </div>
+    <div class="col-3">
+        <h4>Original value: </h4>
+        <h5>After pipe:</h5>
+    </div>
+</div>
+
+<div class="row container mx-auto my-5">
+    <div class="col-3">
+        <h4>Original value: {{currentData}}</h4>
+        <h5>After pipe: {{currentData | date}}</h5>
+    </div>
+    <div class="col-3">
+        <h4>Original value: {{currentData}}</h4>
+        <h5>After pipe:  {{currentData | date:'dd-mm-yyyy'}}</h5>
+    </div>
+    <div class="col-3">
+        <h4>Original value: </h4>
+        <h5>After pipe:</h5>
+    </div>
+    <div class="col-3">
+        <h4>Original value: </h4>
+        <h5>After pipe:</h5>
+    </div>
+</div>
+<div class="row container mx-auto my-5">
+    <div class="col-3">
+        <h4>Original value: {{studentinfo}}</h4>
+        <h5>After pipe: {{studentinfo | json}}</h5>
+    </div>
+    <div class="col-3">
+        <h4>Original value: {{currentTime}}</h4>
+        <h5>After pipe: {{currentTime | async | date:'hh:mm:ss'}}</h5>
+    </div>
+    <div class="col-3">
+        <h4>Original value: {{studentinfo.state}}</h4>
+        <h5>After pipe: {{studentinfo.state | na}}</h5>
+    </div>
+</div>

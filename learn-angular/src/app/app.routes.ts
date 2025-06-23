@@ -4,6 +4,9 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
 import { AttributeDirectiveComponent } from './components/directive/attribute-directive/attribute-directive.component';
 import { StructuralDirectiveComponent } from './components/directive/structural-directive/structural-directive.component';
+import { IfelseComponent } from './components/controlFlow/ifelse/ifelse.component';
+import { ForSwitchComponent } from './components/controlFlow/for-switch/for-switch.component';
+import { PipeComponent } from './components/pipe/pipe.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +28,17 @@ export const routes: Routes = [
     {
         path: 'struc-dir',
         component:StructuralDirectiveComponent
+    },
+    {
+        path: 'if-else',
+        component: IfelseComponent
+    },
+    {
+        path: 'for-switch',
+        component:ForSwitchComponent
+    },
+    {
+        path: 'pipe',
+        component:PipeComponent
     }
 ];

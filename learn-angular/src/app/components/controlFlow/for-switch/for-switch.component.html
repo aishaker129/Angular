@@ -1,0 +1,100 @@
+<div class="bg-secondary w-full rounded my-4 py-4 mx-4 text-light px-5">
+    <h2>control flow for switch and for</h2>
+    <h5><span>&#64;</span>for,<span>&#64;</span>switch</h5>
+    <button class="btn btn-primary" (click)="nevigateTotheIfElse()">Go To if-else directory</button>
+</div>
+<div class="row mx-4">
+    <div class="col-3 text-center">
+        <ul>
+            @for(item of city; track $index){
+            <li>{{item}}</li>
+            }
+
+        </ul>
+    </div>
+    <div class="col-3 text-center">
+        @for(item of city; track $index){
+        <div>{{item}}</div>
+        }
+    </div>
+    <div class="col-3 text-center">
+        <select>
+            @for(item of city; track $index){
+            <option>{{item}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-3 text-center">
+        <select>
+            @for(item of studentList; track $index){
+            <option [value]="item.studentId">{{item.name}}</option>
+            }
+        </select>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-6 text-center">
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <th>srNo</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of studentList; track $index){
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.studentId}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.city}}</td>
+                        <td>
+                            @if(item.isActive){
+                                <span>Active</span>
+                            }
+                            @else {
+                                <span>De-Active</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3 text-center">
+        <input type="text" [(ngModel)]="number" placeholder="Enter a number">
+    </div>
+    <div class="col-3 text-center">
+        Day Name is: 
+        @switch (number) {
+            @case ('1') {
+                <span>Saterday</span>
+            }
+            @case ('2') {
+                <span>Sunday</span>
+            }
+            @case ('3') {
+                <span>Monday</span>
+            }
+            @case ('4') {
+                <span>Tuesday</span>
+            }
+            @case ('5') {
+                <span>Wednessday</span>
+            }
+            @case ('6') {
+                <span>Thursday</span>
+            }
+            @case ('7') {
+                <span>Friday</span>
+            }
+            @default {
+                <span>Wrong input try again</span>
+            }
+        }
+    </div>
+</div>
