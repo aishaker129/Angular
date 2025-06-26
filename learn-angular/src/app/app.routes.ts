@@ -7,6 +7,7 @@ import { StructuralDirectiveComponent } from './components/directive/structural-
 import { IfelseComponent } from './components/controlFlow/ifelse/ifelse.component';
 import { ForSwitchComponent } from './components/controlFlow/for-switch/for-switch.component';
 import { PipeComponent } from './components/pipe/pipe.component';
+import { TempleteComponent } from './components/forms/templete/templete.component';
 
 export const routes: Routes = [
     {
@@ -40,5 +41,9 @@ export const routes: Routes = [
     {
         path: 'pipe',
         component:PipeComponent
+    },
+    {
+        path: 'templete',
+        component:TempleteComponent
     }
 ];
