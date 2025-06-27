@@ -1,1 +1,124 @@
-<p>reactive works!</p>
+<div class="container mx-auto bg-secondary p-4 text-white">
+    <h1>Reactive Form</h1>
+    <h4>Create form and validation</h4>
+</div>
+
+<div class="container mx-auto mt-5">
+    <form class="row g-3" novalidate [formGroup]="studentForm">
+        <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">First name</label>
+            <input type="text" formControlName="firstName" class="form-control" id="validationCustom01" required>
+            <div class="text-danger">
+                @if((studentForm.controls['firstName'].touched || studentForm.controls['firstName'].dirty)&&
+                (studentForm.controls['firstName'].errors?.['required'])){
+                <span>This field is required !!</span>
+                }
+                @else if((studentForm.controls['firstName'].touched || studentForm.controls['firstName'].dirty)&&
+                (studentForm.controls['firstName'].errors?.['minlength'])){
+                <span>Minimum 3 character required !!</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">Last name</label>
+            <input type="text" formControlName="lastName" class="form-control" id="validationCustom02" required>
+            <div class="text-danger">
+                @if((studentForm.controls['lastName'].touched || studentForm.controls['lastName'].dirty)&&
+                (studentForm.controls['lastName'].errors?.['required'])){
+                <span>This field is required !!</span>
+                }
+                @else if((studentForm.controls['lastName'].touched || studentForm.controls['lastName'].dirty)&&
+                (studentForm.controls['lastName'].errors?.['minlength'])){
+                <span>Minimum 3 character required !!</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationCustomUsername" class="form-label">Username</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+                <input type="text" formControlName="userName" class="form-control" id="validationCustomUsername"
+                    aria-describedby="inputGroupPrepend" required>
+
+            </div>
+            <div class="text-danger">
+                @if((studentForm.controls['userName'].touched || studentForm.controls['userName'].dirty)&&
+                (studentForm.controls['userName'].errors?.['email'])){
+                <span>Valid email account required !!</span>
+                }
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <label for="validationCustom03" class="form-label">City</label>
+            <input type="text" formControlName="city" class="form-control" id="validationCustom03" required>
+            <div class="text-danger">
+                @if((studentForm.controls['city'].touched || studentForm.controls['city'].dirty)&&
+                (studentForm.controls['city'].errors?.['required'])){
+                <span>This field is required !!</span>
+                }
+                @else if((studentForm.controls['city'].touched || studentForm.controls['city'].dirty)&&
+                (studentForm.controls['city'].errors?.['minlength'])){
+                <span>Minimum 3 character required !!</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">State</label>
+            <select class="form-select" formControlName="state" id="validationCustom04" required>
+                <option selected disabled value="">Choose...</option>
+                <option>Dhaka</option>
+                <option>Chittagong</option>
+                <option>Rajshahi</option>
+                <option>Barishal</option>
+                <option>Sylet</option>
+                <option>DinajPur</option>
+                <option>Rangpur</option>
+                <option>Mymonshing</option>
+            </select>
+            <div class="text-danger">
+                    @if((studentForm.controls['state'].touched || studentForm.controls['state'].dirty)&&
+                    (studentForm.controls['state'].errors?.['required'])){
+                    <span>This field is required !!</span>
+                    }
+                </div>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Zip</label>
+            <input type="text" formControlName="zipCode" class="form-control" id="validationCustom05" required>
+            <div class="text-danger">
+                @if((studentForm.controls['zipCode'].touched || studentForm.controls['zipCode'].dirty)&&
+                (studentForm.controls['zipCode'].errors?.['required'])){
+                <span>This field is required !!</span>
+                }
+                @else if((studentForm.controls['zipCode'].touched || studentForm.controls['zipCode'].dirty)&&
+                (studentForm.controls['zipCode'].errors?.['minlength'])){
+                <span>Minimum 3 character required !!</span>
+                }
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" formControlName="isAcceptTerms" type="checkbox" value=""
+                    id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                </label>
+                <div class="text-danger">
+                    @if((studentForm.controls['isAcceptTerms'].touched || studentForm.controls['isAcceptTerms'].dirty)&&
+                    (studentForm.controls['isAcceptTerms'].errors?.['required'])){
+                    <span>This field is required !!</span>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-center">
+            <button class="btn btn-secondary" type="reset">Reset form</button>
+            <button class="btn btn-primary mx-5" [disabled]="studentForm.invalid" type="submit" (click)="onSave()">Submit form</button>
+        </div>
+    </form>
+</div>
+
+<!-- <div class="container mx-auto">
+    {{formValue | json}}
+</div> -->
