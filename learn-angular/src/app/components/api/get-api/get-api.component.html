@@ -1,0 +1,56 @@
+<div class="row container mx-auto">
+
+    <div class="text-center mt-5">
+        <button class="btn btn-primary" (click)="showValue()">Get User</button>
+        <button class="btn btn-success mx-5" (click)="showEvent()">Get Event</button>
+    </div>
+
+    <div class="container mx-auto my-4">
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of userList; track $index){
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.username}}</td>
+                        <td>{{item.email}}</td>
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="container mx-auto my-4">
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of eventList; track $index){
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.date}}</td>
+                        <td>{{item.time}}</td>
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>

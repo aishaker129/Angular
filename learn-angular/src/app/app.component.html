@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="add-emp">Add Employee</a>
         </li>
@@ -15,26 +16,38 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="data-binding">Data Binding</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="attribute-dir">Attribute</a>
+        <li>
+          <select class="form-select" [(ngModel)]="directive" (change)="onSelectionChangeDirective()">
+            <option value="">Directive</option>
+            <option value="attribute">Attribute</option>
+            <option value="stAttribute">Structural Attribute</option>
+          </select>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="struc-dir">Structural Attribute</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="if-else">IfElse</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="for-switch">for switch</a>
+        <li>
+          <select class="form-select" [(ngModel)]="controlFlow" (change)="onSelectionChangeControlFlow()">
+            <option value="">Control Flow</option>
+            <option value="if-else">If-Else</option>
+            <option value="switch-for">Switch-For</option>
+          </select>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="pipe">Pipe</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="form-templete">Templete</a>
+         <li>
+          <select class="form-select" [(ngModel)]="form" (change)="onSelectionChangeForm()">
+            <option value="">Form</option>
+            <option value="templete">Template Form</option>
+            <option value="reactive">Reactive Form</option>
+          </select>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="reactive-form">Reactive</a>
+        <li>
+          <select class="form-select" [(ngModel)]="api" (change)="onSelectionChangeApi()">
+            <option value="">API</option>
+            <option value="get">GET</option>
+            <option value="post">POST</option>
+            <option value="put">PUT</option>
+            <option value="delete">DELETE</option>
+          </select>
         </li>
       </ul>
     </div>
