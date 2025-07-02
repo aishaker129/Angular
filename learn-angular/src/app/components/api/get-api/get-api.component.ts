@@ -4,7 +4,7 @@ import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-get-api',
-  imports: [JsonPipe],
+  imports: [],
   templateUrl: './get-api.component.html',
   styleUrl: './get-api.component.css'
 })
