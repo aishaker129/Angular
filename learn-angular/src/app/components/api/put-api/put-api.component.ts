@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { GoalTrackerService } from '../../../services/goal-tracker.service';
 
 @Component({
   selector: 'app-put-api',
@@ -26,6 +27,7 @@ export class PutApiComponent implements OnInit {
   }
 
   http = inject(HttpClient);
+  goalService = inject(GoalTrackerService)
 
   onSave() {
     debugger;
@@ -52,10 +54,24 @@ export class PutApiComponent implements OnInit {
     this.UserObject = item;
   }
 
+  // onUpdate() {
+  //   this.UserObject.createDate = new Date();
+  //   debugger;
+  //   this.http.post("https://api.freeprojectapi.com/api/GoalTracker/updateUser?id="+this.UserObject.userId, this.UserObject).subscribe({
+  //     next: (result) => {
+  //       debugger;
+  //       alert("User Update successfully");
+  //       this.getUser();
+
+  //     }, error: (error) => {
+  //       debugger;
+  //       alert("error -" + error.error);
+  //     }
+  //   })
+  // }
+
   onUpdate() {
-    this.UserObject.createDate = new Date();
-    debugger;
-    this.http.post("https://api.freeprojectapi.com/api/GoalTracker/updateUser?id="+this.UserObject.userId, this.UserObject).subscribe({
+    this.goalService.saveUser(this.UserObject).subscribe({
       next: (result) => {
         debugger;
         alert("User Update successfully");
@@ -68,13 +84,30 @@ export class PutApiComponent implements OnInit {
     })
   }
 
+  // onDelete(id: number) {
+  //   const isDelete = confirm("Do you want to delete this data");
+  //   if (isDelete) {
+  //     this.http.delete("https://api.freeprojectapi.com/api/GoalTracker/deleteUserById?id=" + id).subscribe({
+  //       next: (result) => {
+  //         debugger;
+  //         alert("User delete successfully");
+  //         this.getUser();
+
+  //       }, error: (error) => {
+  //         debugger;
+  //         alert("error -" + error.error);
+  //       }
+  //     })
+  //   }
+  // }
+
   onDelete(id: number) {
-    const isDelete = confirm("Do you want to delete this data");
+    const isDelete = confirm("Do you want to delete this data..!!");
     if (isDelete) {
-      this.http.post("https://api.freeprojectapi.com/api/GoalTracker/deleteUserById=" + id, this.UserObject).subscribe({
+      this.goalService.deleteUser(id).subscribe({
         next: (result) => {
           debugger;
-          alert("User Update successfully");
+          alert("User delete successfully");
           this.getUser();
 
         }, error: (error) => {

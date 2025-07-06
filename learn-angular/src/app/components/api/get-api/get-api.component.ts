@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { GoalTrackerService } from '../../../services/goal-tracker.service';
 
 @Component({
   selector: 'app-get-api',
@@ -17,23 +18,41 @@ export class GetApiComponent {
   //http = inject(HttpClient);
 
   // dependency injection
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private goalService: GoalTrackerService) { }
   
+  // showValue() {
+  //   debugger;
+  //   this.http.get('https://jsonplaceholder.typicode.com/users').subscribe((result: any) => {
+  //     debugger;
+  //     this.userList = result;
+  //   })
+  // }
+
   showValue() {
     debugger;
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe((result: any) => {
+    this.goalService.getAllUser().subscribe((res: any) => {
       debugger;
-      this.userList = result;
+      this.userList = res;
     })
   }
 
+
+
+  // showEvent() {
+  //   debugger;
+  //   this.http.get('https://gradbond.up.railway.app/api/events/').subscribe((res: any) => {
+  //     debugger;
+  //     this.eventList = res.events;
+  //   })
+    
+  // }
+
   showEvent() {
     debugger;
-    this.http.get('https://gradbond.up.railway.app/api/events/').subscribe((res: any) => {
+    this.goalService.getAllEvent().subscribe((res: any) => {
       debugger;
       this.eventList = res.events;
     })
-    
   }
 
 }
